@@ -113,3 +113,33 @@ function calculateNumberAmountsPurchar(orders) {
     if (orders.length <= 0) return 0
     return orders.reduce((sum, item) => sum + item.amount_total, 0);
 }
+
+function countCustomers(orders) {
+    let customerCount = 0;
+    let phoneNumbers = [];
+    const list = orders.filter((i) => i.partner_id != false)
+    for (let i = 0; i < list.length; i++) {
+        const phoneNumber = list[i].partner_id[0];
+        if (!phoneNumbers.includes(phoneNumber)) {
+            phoneNumbers.push(phoneNumber);
+            customerCount++;
+        }
+    }
+
+    return customerCount;
+}
+function getUniqueCustomers(orders) {
+    console.log(orders)
+    const list = orders.filter((i) => i.partner_id != false)
+    const uniqueCustomers = [];
+
+    list.forEach((order) => {
+
+        const customer = order.partner_id[0];
+        if (!uniqueCustomers.includes(customer)) {
+            uniqueCustomers.push(customer);
+        }
+    });
+
+    return uniqueCustomers;
+}

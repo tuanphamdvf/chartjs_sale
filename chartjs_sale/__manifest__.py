@@ -10,7 +10,7 @@
     'author': "TTN SOFTWARE",
     'website': "TTNSOFTWARE.STORE",
     'category': 'App',
-    'version': '15.1.1',
+    'version': '15.2.2',
     'depends': ['base', 'mrp', 'sale', 'pos_sale'],
 
     'data': [

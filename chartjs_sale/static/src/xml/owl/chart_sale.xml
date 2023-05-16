@@ -17,16 +17,16 @@
                         </div>
                         <select class="custom-select" t-ref="staff" t-att-value="state.staffValue">
                             <option value="0">All</option>
-                            <t t-foreach="model.stafflist" t-as="staff">
+                            <!-- <t t-foreach="model.stafflist" t-as="staff">
                                 <option t-att-value="staff.id">
                                     <t t-esc="staff.name" />
                                 </option>
-                            </t>
+                            </t> -->
 
                         </select>
                     </div>
                     <div class=" col-4 d-flex align-items-end">
-                        <button type="button" data-toggle="modal" data-target="#updateModal" class="btn btn-primary button-9 " t-on-click="onClick">Search</button>
+                        <button type="button" data-toggle="modal" data-target="#updateModal" class="btn btn-primary button-9 ">Search</button>
                         <!-- <button type="button" class="btn btn-primary button-9 " t-on-click="onClick">Search</button> -->
                     </div>
                     <!-- Modal -->
@@ -34,19 +34,19 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Warning!!!</h5>
 
                                 </div>
                                 <div class="modal-body">
-                                    <h6> This is just a testing version, and we are further developing it in the future.
+                                    <span> This is just a testing version, and we are further developing it in the future.
                                         You can stay updated on the progress by checking our list of applications. Thank
                                         you for your interest. If you have any questions or need assistance, please feel
-                                        free to contact us. Thank you for your understanding..</h6>
+                                        free to contact us. Thank you for your understanding...</span>
 
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <a target="_blank" href="https://apps.odoo.com/apps/modules/16.0/dashboard_rabbit/" type="button" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Update</a>
+                                    <a target="_blank" href="https://apps.odoo.com/apps/modules/16.0/dashboard_rabbit" type="button" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Update</a>
                                 </div>
                             </div>
                         </div>
@@ -59,16 +59,16 @@
                 <div class="eight">
                     <h6>Revenue </h6>
                 </div>
-                <div class="chart-container">
-                    <canvas t-ref="myChart"></canvas>
+                <div class="chart-container" style="height : 500px">
+                    <canvas t-ref="chart1"></canvas>
                 </div>
 
             </div>
             <div class="row mt-5  g-2 ">
                 <div style="height:140px" class="col-lg-2 col-xs-12 col-md-2 ">
                     <div class="bg-blue bordermini shadow-custom h-100 w-100 p-3">
-                        <i class="fa-solid fa-money-bill-trend-up mr-2 " style="font-size: 22px; "></i>
-                        <label>TOTAL AMOUNT RECEIVED</label>
+                        <i class="fa-solid fa-money-bill-trend-up mr-2 " style="font-size:20px; "></i>
+                        <label>AMOUNT RECEIVED</label>
                         <div class="w-100 h-1/4 text-right">
                             <h3 class="block text-white">
                                 <t t-esc="total"></t>
@@ -85,7 +85,8 @@
 
                 <div style="height:140px" class="col-lg-2 col-xs-12 col-md-2 ">
                     <div style="background-color: #3F51B5;" class="bg-blue bordermini shadow-custom h-100 w-100 p-3">
-                        <i class="fa-solid fa-money-bill-trend-up mr-2 " style="font-size: 22px; "></i>
+
+                        <i class="fa-solid fa-money-check-dollar mr-2" style="font-size:20px; "></i>
                         <label>TOTAL BY CASH</label>
                         <div class="w-100 h-1/4 text-right">
                             <h3 class="block text-white">
@@ -104,7 +105,8 @@
 
                 <div style="height:140px" class="col-lg-2 col-xs-12 col-md-2 ">
                     <div style="background-color: #009688;" class="bg-blue bordermini shadow-custom h-100 w-100 p-3">
-                        <i class="fa-solid fa-money-bill-trend-up mr-2 " style="font-size: 22px; "></i>
+
+                        <i class="fa-solid fa-credit-card mr-2 " style="font-size:20px; "></i>
                         <label>CARD AND TRANSFER</label>
                         <div class="w-100 h-1/4 text-right">
                             <h3 class="block text-white">
@@ -125,7 +127,8 @@
 
                 <div style="height:140px" class="col-lg-2 col-xs-12 col-md-2 ">
                     <div style="background-color: #F44336;" class="bg-blue bordermini shadow-custom h-100 w-100 p-3">
-                        <i class="fa-solid fa-money-bill-trend-up mr-2 " style="font-size: 22px; "></i>
+
+                        <i class="fa-solid fa-cart-shopping mr-2" style="font-size:20px; "></i>
                         <label>PURCHASE</label>
                         <div class="w-100 h-1/4 text-right">
                             <h3 class="block text-white">
@@ -146,37 +149,40 @@
 
                 <div style="height:140px" class="col-lg-2 col-xs-12 col-md-2 ">
                     <div style="background-color: #D81B60" class="bg-blue bordermini shadow-custom h-100 w-100 p-3">
-                        <i class="fa-solid fa-money-bill-trend-up mr-2 " style="font-size: 22px; "></i>
-                        <label>Booking</label>
+
+                        <i class="fa-solid fa-square-poll-vertical mr-2" style="font-size:20px; "></i>
+                        <label>Profit</label>
                         <div class="w-100 h-1/4 text-right">
-                            <h3 class="block text-white">100 </h3>
+                            <h3 class="block text-white">
+                                <t t-esc="totalProfit"></t>
+                            </h3>
                         </div>
-                        <div class="d-flex  justify-content-between w-100 mt-4" style="">
-                            <span class="block">Cancel booking</span>
-                            <h5 class="text-white">10</h5>
-                        </div>
+
                     </div>
                 </div>
 
                 <div style="height:140px" class="col-lg-2 col-xs-12 col-md-2 ">
                     <div style="background-color: #981bd8" class="bg-blue bordermini shadow-custom h-100 w-100 p-3">
-                        <i class="fa-solid fa-money-bill-trend-up mr-2 " style="font-size: 22px; "></i>
+
+                        <i class="fa-solid fa-user mr-2" style="font-size:20px; "></i>
                         <label>Customer</label>
                         <div class="w-100 h-1/4 text-right">
-
+                            <h3 class="block text-white">
+                                <t t-esc=" numberCustomer"></t>
+                            </h3>
                         </div>
                         <div class="d-flex  justify-content-between w-100 mt-4" style="">
 
                             <span class="block">New customer</span>
                             <h5 class="text-white">
-                                <t t-esc="numberNewCustomer"></t>
+                                <t t-esc="newCustomer"></t>
                             </h5>
                         </div>
-                        <div class="d-flex  justify-content-between w-100 mt-4" style="">
+                        <div class="d-flex  justify-content-between w-100 " style="">
 
                             <span class="block">Old customer</span>
                             <h5 class="text-white">
-                                <t t-esc="numberOldCustomer"></t>
+                                <t t-esc="oldCustomer"></t>
                             </h5>
                         </div>
                     </div>
@@ -188,20 +194,21 @@
                     <div class="eight">
                         <h6>Product </h6>
                     </div>
-                    <div style="height : 400px ;" class="mt-5 ">
-                        <canvas t-ref="myChart2"></canvas>
+                    <div style="height : 400px ; width:400px" class="mt-5 chart-container ">
+                        <canvas t-ref="chart2"></canvas>
                     </div>
 
                 </div>
-                <div class="justify-content-center d-flex ml-5 pl-5  relative ">
+                <div class="justify-content-center d-flex ml-5 pl-5  relative col-7">
                     <div class="eight">
                         <h6>Staff</h6>
                     </div>
-                    <div style="height : 500px; " class="mt-5 ml-5">
-                        <canvas t-ref="myChart3"></canvas>
+                    <div style="height : 500px" class=" mt-5 w-100 ml-5">
+                        <canvas t-ref="chart3"></canvas>
                     </div>
                 </div>
             </div>
+
 
 
         </div>
