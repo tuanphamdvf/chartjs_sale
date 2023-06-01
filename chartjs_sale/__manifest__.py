@@ -11,7 +11,7 @@
     'website': "TTNSOFTWARE.STORE",
     'category': 'App',
     'version': '15.2.2',
-    'depends': ['base', 'mrp', 'sale', 'pos_sale'],
+    'depends': ['base', 'mrp', 'sale', 'pos_sale', "hr", "purchase"],
 
     'data': [
         'security/ir.model.access.csv',
